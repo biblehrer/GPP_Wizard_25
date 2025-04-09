@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +95,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 197
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658714634a114bd40abf89fc8f7dbb5d
+      internalID: 281802770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_1
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 197
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d61a9709146eda43b1589d2afc1c31e
+      internalID: -517888219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 197
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760725d870514f34c8518394c59f0391
+      internalID: -1105667748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cc865f973b79843be41e53284c0d09
+      internalID: -348880612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62dee5ac3309af40a8ba735d4ecce70
+      internalID: 154747437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-512px-by-197px-per-frame_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 197
+      alignment: 9
+      pivot: {x: 0.1, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14395cb8ba87427489fb18033eed2d4f
+      internalID: -2047577379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +232,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spritesheet-512px-by-197px-per-frame_0: 281802770
+      spritesheet-512px-by-197px-per-frame_1: -517888219
+      spritesheet-512px-by-197px-per-frame_2: -1105667748
+      spritesheet-512px-by-197px-per-frame_3: -348880612
+      spritesheet-512px-by-197px-per-frame_4: 154747437
+      spritesheet-512px-by-197px-per-frame_5: -2047577379
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
