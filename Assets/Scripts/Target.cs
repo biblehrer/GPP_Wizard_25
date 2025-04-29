@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void O(Collision2D collision)
-    {
-        Debug.Log("HEY");
-    }
+    public GameObject target;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("LISTEN");
+        if (collision.tag == "Projectile")
+        {
+            CreateNewTarget();
+            Destroy(gameObject);
+        }
+    }
+
+    void CreateNewTarget()
+    {
+        float x = Random.Range(-8.3f, 8.3f);
+        float y = Random.Range(-4.5f,4.5f);
+        Instantiate(target,new Vector3(x,y,0), Quaternion.identity);
     }
 }

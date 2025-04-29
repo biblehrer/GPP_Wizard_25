@@ -8,6 +8,9 @@ public class Wizard : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 lastDirection;
     private float movementSpeed = 3;
+    float castingTimer = 0;
+    float castingCooldown = 2;
+
 
     void Start()
     {
@@ -40,14 +43,25 @@ public class Wizard : MonoBehaviour
             direction += Vector3.right;
         }
         rb.velocity = direction.normalized * movementSpeed;
+
+        if (direction.magnitude > 0)
+        {
+            lastDirection = direction.normalized;
+        }
+        
     }
 
     void Casting()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        castingTimer -= Time.deltaTime;
+        if (Input.GetKeyUp(KeyCode.Space) && castingTimer <= 0)
         {
-            GameObject obj = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-            obj.transform.position += Vector3.up * 1.5f;
+            // Reset the Casting
+            castingTimer = castingCooldown;
+
+            // Give the Fireball its Direction and Values
+            GameObject obj = Instantiate(fireballPrefab, transform.position, Quaternion.identity);                  
+            obj.GetComponent<Fireball>().SetValues(lastDirection);        
         }        
     }
 }
