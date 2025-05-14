@@ -5,13 +5,28 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public GameObject target;
+    private Wizard player;
+    private float lifeTimeCounter = 0;  
+
+    void Start ()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<Wizard>();
+    }
+
+    void Update ()
+    {
+        lifeTimeCounter += Time.deltaTime;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Projectile")
         {
+            player.stats.GainXP(Mathf.Max(1, 5-lifeTimeCounter));
             CreateNewTarget();
+            GameUI.score++;
             Destroy(gameObject);
+            
         }
     }
 

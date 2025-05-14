@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
-    public GameObject fireballPrefab;
-    private Rigidbody2D rb;
+    public GameObject fireballPrefab;    
     private Vector3 lastDirection;
-    private float movementSpeed = 3;
-    float castingTimer = 0;
-    float castingCooldown = 2;
+    
+    // Componenten
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer sr;
+
+    // Players Stats
+    private float castingTimer = 0;
+    public WizardClass stats; 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();        
     }
 
     void Update()
     {
+        animator.SetBool("attack", false);  
         Movement();
         Casting();
     }
@@ -42,26 +50,47 @@ public class Wizard : MonoBehaviour
         {
             direction += Vector3.right;
         }
-        rb.velocity = direction.normalized * movementSpeed;
+        rb.velocity = direction.normalized * stats.movementSpeed;
+
+        if (direction.x < 0)
+        {
+            sr.flipX = true;
+        }
+        if (direction.x > 0)
+        {
+            sr.flipX = false;
+        }
 
         if (direction.magnitude > 0)
         {
             lastDirection = direction.normalized;
         }
+        animator.SetBool("move", direction.magnitude > 0);  
         
     }
 
     void Casting()
     {
         castingTimer -= Time.deltaTime;
-        if (Input.GetKeyUp(KeyCode.Space) && castingTimer <= 0)
+        if (Input.GetKeyUp(KeyCode.Space) && castingTimer <= 0 && stats.mana >= 20)
         {
-            // Reset the Casting
-            castingTimer = castingCooldown;
+            animator.SetFloat("attackSpeed", stats.castingTimeBase /stats.castingTime);
+            castingTimer = stats.castingTime;            
+            animator.SetBool("attack", true);
+            stats.mana -= 20;   
+        }  
 
-            // Give the Fireball its Direction and Values
-            GameObject obj = Instantiate(fireballPrefab, transform.position, Quaternion.identity);                  
-            obj.GetComponent<Fireball>().SetValues(lastDirection);        
-        }        
+        stats.mana += Time.deltaTime * stats.manaRegeneration;
+        if (stats.mana > stats.maxMana)
+        {
+            stats.mana = stats.maxMana;
+        }      
     }
+
+    public void CreateFireball()
+    {
+        GameObject obj = Instantiate(fireballPrefab, transform.position, Quaternion.identity);  
+        obj.GetComponent<Fireball>().SetValues(lastDirection);   
+    }
+
 }

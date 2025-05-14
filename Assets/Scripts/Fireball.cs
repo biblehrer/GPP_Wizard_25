@@ -30,6 +30,7 @@ public class Fireball : MonoBehaviour
 
     public void AdjustRotation3(Vector3 direction)
     {
+        // TODO finish Code
         float angle = 0;        
         if (direction.y != 0)
         {
@@ -48,7 +49,7 @@ public class Fireball : MonoBehaviour
 
     public void AdjustRotation2(Vector3 direction)
     {
-        transform.right = direction*-1;
+        transform.right = direction*-1;       
     }
 
     void OnTriggerEnter2D(Collider2D collision)
